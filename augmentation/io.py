@@ -39,6 +39,16 @@ class CSVReadWriter:
         if equal and label != "all":
             size = classes[maxidx] - classes[minidx]
 
+        if size < 1:
+            total = float(classes[maxidx] + classes[minidx])
+            want = size * total # (combined)
+            if want > classes[minidx]:
+                print("Made bigger by", want - classes[minidx])
+                print("Want", want)
+                print("Have", classes[minidx])
+                size = want - classes[minidx]
+            else:
+                size = 1
         if size:
             idx = np.arange(0, size) % len(input_df)
             input_df = input_df.iloc[idx]

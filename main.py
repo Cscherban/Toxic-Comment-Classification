@@ -4,7 +4,7 @@ from augmentation.io import CSVReadWriter
 import os.path
 from os import path
 
-in_dir = '/home/cscherban/Documents/School/DLTProj/8803Data/'
+in_dir = '/home/cscherban/Documents/School/DLTProj/8803Data/stop_words/'
 comment_file = "X_train.csv"
 label_file = "y_train.csv"
 
@@ -17,7 +17,7 @@ jobs = [
         "equal": True,
         "label": "minority",
         "mode": "append",
-        "outdir": in_dir + "synonym_augmentation_minority/",
+        "outdir": in_dir + "synonym_augmentation_minority_50/",
         "hyperparams": {}
     },
     {
@@ -26,16 +26,7 @@ jobs = [
         "equal": True,
         "label": "minority",
         "mode": "append",
-        "outdir": in_dir + "mask_augmentation_minority/",
-        "hyperparams": {}
-    },
-    {
-        "title": "Stop Words",
-        "obj": RemoveStopWords,
-        "equal": True,
-        "label": "minority",
-        "mode": "append",
-        "outdir": in_dir + "stop_words_aug_minority/",
+        "outdir": in_dir + "mask_augmentation_minority_50/",
         "hyperparams": {}
     },
     {
@@ -44,9 +35,18 @@ jobs = [
         "equal": True,
         "label": "minority",
         "mode": "append",
-        "outdir": in_dir + "unique_words_minority/",
+        "outdir": in_dir + "unique_augmentation_minority_50/",
         "hyperparams": {}
     }
+    # {
+    #     "title": "Stop Words",
+    #     "obj": RemoveStopWords,
+    #     #"size": .7,
+    #     "label": "all",
+    #     "mode": "update",
+    #     "outdir": in_dir + "stop_words/",
+    #     "hyperparams": {}
+    # },
 ]
 
 
